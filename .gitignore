@@ -1,0 +1,17 @@
+.vagrant
+.idea
+Berksfile.lock
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+*.iml
+/cookbooks
+
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+
