@@ -1,24 +1,32 @@
 ---
-driver:
-  name: vagrant
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
+  use_vagrant_berkshelf_plugin: true
+  customize:
+    memory: 512
+    cpus: 2
 
 provisioner:
   name: chef_solo
 
 platforms:
   - name: ubuntu-12.04
+    driver_config:
+      box: opscode_ubuntu-12.04_provisionerless
+      box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
 
 suites:
   - name: default
     run_list:
+      - recipe[apt::default]
       - recipe[postfix::default]
       - recipe[mailx::default]
       - recipe[mysql::server]
       - recipe[mysql-zrm::default]
-    attributes: {
-      mysql: {
-        server_root_password: 'rootpass',
-        server_debian_password: 'debpass',
+    attributes:
+      mysql:
+        server_root_password: 'rootpass'
+        server_debian_password: 'debpass'
         server_repl_password: 'replpass'
-      }
-    }
+

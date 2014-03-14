@@ -84,6 +84,7 @@ Vagrant.configure("2") do |config|
     }
 
     chef.run_list = [
+        "recipe[apt::default]",
         "recipe[postfix::default]",
         "recipe[mailx::default]",
         "recipe[mysql::server]",
