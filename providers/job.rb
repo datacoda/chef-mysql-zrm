@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: mysql-zrm
-# Provider:: mysql_zrm_job
+# Provider:: job
 #
 # Copyright (C) 2014 Nephila Graphic
 #
@@ -16,8 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-include Chef::Mixin::ShellOut
 
 action :delete do
   cmd = cron_command
@@ -60,7 +58,7 @@ private
 
 def cron_command
   cmd_options = [ "--action backup" ]
-  cmd_options << "--backup-set #{new_resource.set}"
+  cmd_options << "--backup-set #{new_resource.backup_set}"
   case new_resource.level
     when :full
       cmd_options << "--backup-level 0"
