@@ -16,3 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+default['mysql-zrm']['dir'] = '/etc/mysql-zrm'
+default['mysql-zrm']['plugins'] = '/usr/share/mysql-zrm/plugins'

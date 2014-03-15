@@ -23,7 +23,7 @@ suites:
       - recipe[postfix::default]
       - recipe[mailx::default]
       - recipe[mysql::server]
-      - recipe[mysql-zrm::default]
+      - recipe[fake::default]
     attributes:
       mysql:
         server_root_password: 'rootpass'
