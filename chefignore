@@ -27,8 +27,10 @@ tmtags
 *_flymake.*
 *_flymake
 *.tmproj
+*.iml
 .project
 .settings
+.idea
 mkmf.log
 
 ## COMPILED ##
