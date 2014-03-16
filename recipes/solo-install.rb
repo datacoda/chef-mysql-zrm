@@ -17,9 +17,11 @@
 # limitations under the License.
 #
 
+pkg_filepath = "#{Chef::Config['file_cache_path'] || '/tmp'}/#{File.basename(node['mysql-zrm']['package']['all'])}"
+
 
 # Download and build MySQL ZRM
-remote_file "/tmp/#{File.basename(node['mysql-zrm']['package']['all'])}" do
+remote_file pkg_filepath do
   source node['mysql-zrm']['package']['all']
   action :create_if_missing
   not_if 'which mysql-zrm'
@@ -30,7 +32,7 @@ package "libxml-parser-perl" do
   action :install
 end
 
-dpkg_package "/tmp/#{File.basename(node['mysql-zrm']['package']['all'])}" do
+dpkg_package pkg_filepath do
   action :install
   not_if 'which mysql-zrm'
 end
