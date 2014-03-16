@@ -1,5 +1,6 @@
 
 include_recipe 'mysql-zrm::default'
+include_recipe 'mysql-zrm::solo-install'
 
 mysql_zrm_backup_set "test_backup" do
   databases [ "employees" ]
