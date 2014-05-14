@@ -10,7 +10,10 @@ A mailx compatible package, previously installed.
 
 Usage
 -----
-TBD
+
+Include both default and solo-install recipes.  In the future, we may have client-server recipe options.
+
+
 
 Attributes
 ----------

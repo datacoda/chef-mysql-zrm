@@ -10,6 +10,4 @@ version          '0.0.1'
   supports os
 end
 
-recommends 'postfix'
-recommends 'mailx'
 recommends 'mysql'

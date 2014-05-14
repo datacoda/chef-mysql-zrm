@@ -19,10 +19,6 @@ platforms:
 suites:
   - name: mysql-zrm
     run_list:
-      - recipe[apt::default]
-      - recipe[postfix::default]
-      - recipe[mailx::default]
-      - recipe[mysql::server]
       - recipe[fake::default]
     attributes:
       mysql:

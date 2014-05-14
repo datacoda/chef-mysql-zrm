@@ -1,3 +1,12 @@
+include_recipe 'apt::default'
+include_recipe 'postfix::default'
+include_recipe 'mysql::server'
+
+
+package 'mailx' do
+  package_name 'heirloom-mailx'
+  action :install
+end
 
 include_recipe 'mysql-zrm::default'
 include_recipe 'mysql-zrm::solo-install'
