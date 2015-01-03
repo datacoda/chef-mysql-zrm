@@ -1,8 +1,7 @@
-require 'serverspec'
-
-include Serverspec::Helper::Exec
+require 'spec_helper'
 
 # Ensure mysql ZRM exists
-describe command('which mysql-zrm') do
-  it { should return_exit_status 0 }
+
+describe package('mysql-zrm') do
+  it { should be_installed }
 end

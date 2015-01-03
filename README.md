@@ -1,5 +1,6 @@
 mysql-zrm cookbook
 ==================
+[![Build Status](https://travis-ci.org/dataferret/chef-mysql-zrm.svg)](https://travis-ci.org/dataferret/chef-mysql-zrm)
 
 Installs and configures Zmanda Recovery Manager for MySQL.
 

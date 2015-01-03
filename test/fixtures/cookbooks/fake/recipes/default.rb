@@ -1,7 +1,12 @@
 include_recipe 'apt::default'
 include_recipe 'postfix::default'
-include_recipe 'mysql::server'
 
+mysql_service 'default' do
+  port '3306'
+  version '5.5'
+  initial_root_password 'secret'
+  action [:create, :start]
+end
 
 package 'mailx' do
   package_name 'heirloom-mailx'
@@ -17,7 +22,6 @@ end
 
 mysql_zrm_backup_set "all_backup" do
 end
-
 
 mysql_zrm_job "weekly" do
   backup_set  "test_backup"
