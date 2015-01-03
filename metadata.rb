@@ -1,13 +1,12 @@
-name             'mysql-zrm'
-maintainer       'Nephila Graphic'
+name 'mysql-zrm'
+maintainer 'Nephila Graphic'
 maintainer_email 'ted@nephilagraphic.com'
-license          'Apache 2.0'
-description      'Installs/Configures Zmanda Recovery Manager for MySQL'
+license 'Apache 2.0'
+description 'Installs/Configures Zmanda Recovery Manager for MySQL'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.0.1'
+version '0.0.2'
 
-%w{ ubuntu debian }.each do |os|
-  supports os
-end
+supports 'ubuntu', '>= 12.04'
+supports 'debian', '>= 7.0'
 
 recommends 'mysql'

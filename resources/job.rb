@@ -19,16 +19,16 @@
 
 actions :create, :delete
 
-attribute :name,      :kind_of => String, :name_attribute => true
-attribute :backup_set, :kind_of => String
-attribute :level,     :kind_of => Symbol, :equal_to => [:full, :incremental], :default => :full
-attribute :interval,  :kind_of => Symbol, :equal_to => [:daily, :weekly, :monthly], :default => :weekly
-attribute :minute,    :kind_of => [Integer, String], :default => 0
-attribute :hour,      :kind_of => [Integer, String], :default => 0
-attribute :day,       :kind_of => [Integer, String], :default => "*"
-attribute :weekday,   :kind_of => [Integer, String], :default => "*"
+attribute :name, kind_of: String, name_attribute: true
+attribute :backup_set, kind_of: String
+attribute :level, kind_of: Symbol, equal_to: [:full, :incremental], default: :full
+attribute :interval, kind_of: Symbol, equal_to: [:daily, :weekly, :monthly], default: :weekly
+attribute :minute, kind_of: [Integer, String], default: 0
+attribute :hour, kind_of: [Integer, String], default: 0
+attribute :day, kind_of: [Integer, String], default: '*'
+attribute :weekday, kind_of: [Integer, String], default: '*'
 
-def initialize(*args)
+def initialize(*)
   super
   @action = :create
 end

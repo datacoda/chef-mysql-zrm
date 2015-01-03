@@ -21,33 +21,34 @@ action :delete do
   cmd = cron_command
 
   c = cron new_resource.name do
-    minute    new_resource.minute
-    hour      new_resource.hour
-    weekday   new_resource.weekday
-    day       new_resource.day
-    command   cmd
-    action    :delete
+    minute new_resource.minute
+    hour new_resource.hour
+    weekday new_resource.weekday
+    day new_resource.day
+    command cmd
+    action :delete
   end
+  new_resource.updated_by_last_action(c.updated_by_last_action?)
 end
 
 
 action :create do
   cmd = cron_command
 
-  cron "purge" do
-    hour      4
-    minute    0
-    command   "/usr/bin/mysql-zrm --action purge"
-    action    :create
+  cron 'purge' do
+    hour 4
+    minute 0
+    command '/usr/bin/mysql-zrm --action purge'
+    action :create
   end
 
   c = cron new_resource.name do
-    minute    new_resource.minute
-    hour      new_resource.hour
-    weekday   new_resource.weekday
-    day       new_resource.day
-    command   cmd
-    action    :create
+    minute new_resource.minute
+    hour new_resource.hour
+    weekday new_resource.weekday
+    day new_resource.day
+    command cmd
+    action :create
   end
 
   new_resource.updated_by_last_action(c.updated_by_last_action?)
@@ -57,15 +58,15 @@ end
 private
 
 def cron_command
-  cmd_options = [ "--action backup" ]
+  cmd_options = ['--action backup']
   cmd_options << "--backup-set #{new_resource.backup_set}"
   case new_resource.level
-    when :full
-      cmd_options << "--backup-level 0"
-    when :incremental
-      cmd_options << "--backup-level 1"
+  when :full
+    cmd_options << '--backup-level 0'
+  when :incremental
+    cmd_options << '--backup-level 1'
   end
   cmd_options << "--interval #{new_resource.interval}"
 
-  return "/usr/bin/zrm-pre-scheduler #{cmd_options.flatten.join ' '}"
+  "/usr/bin/zrm-pre-scheduler #{cmd_options.flatten.join ' '}"
 end

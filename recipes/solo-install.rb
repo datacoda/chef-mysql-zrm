@@ -28,7 +28,7 @@ remote_file pkg_filepath do
 end
 
 # Install package dependencies for mysql-zrm
-package "libxml-parser-perl" do
+package 'libxml-parser-perl' do
   action :install
 end
 

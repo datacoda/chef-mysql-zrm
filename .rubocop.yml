@@ -28,6 +28,15 @@ CyclomaticComplexity:
 Style/FileName:
   Enabled: false
 
+Style/EmptyLines:
+  Enabled: false
+
+Style/TrailingWhitespace:
+  Enabled: false
+
+Style/TrailingBlankLines:
+  Enabled: false
+
 Metrics/AbcSize:
   Enabled: false
 

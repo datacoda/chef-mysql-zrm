@@ -12,6 +12,18 @@ platforms:
         memory: 512
         cpus: 2
 
+  - name: ubuntu-14.04
+    driver_config:
+      customize:
+        memory: 512
+        cpus: 2
+
+  - name: debian-7.4
+    driver_config:
+      customize:
+        memory: 512
+        cpus: 2
+
 suites:
   - name: mysql-zrm
     run_list:

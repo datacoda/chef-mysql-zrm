@@ -20,31 +20,31 @@
 actions :create, :delete
 
 
-attribute :name,      :kind_of => String, :name_attribute => true
-attribute :comment,   :kind_of => [String, NilClass]
-attribute :databases, :kind_of => Array, :default => []
-attribute :level,     :kind_of => Symbol, :equal_to => [:full, :incremental], :default => :full
+attribute :name, kind_of: String, name_attribute: true
+attribute :comment, kind_of: [String, NilClass]
+attribute :databases, kind_of: Array, default: []
+attribute :level, kind_of: Symbol, equal_to: [:full, :incremental], default: :full
 
-attribute :host,      :kind_of => [String, NilClass]
-attribute :user,      :kind_of => [String, NilClass]
-attribute :password,  :kind_of => [String, NilClass]
-attribute :port,      :kind_of => [String, Integer], :default => 3306
+attribute :host, kind_of: [String, NilClass]
+attribute :user, kind_of: [String, NilClass]
+attribute :password, kind_of: [String, NilClass]
+attribute :port, kind_of: [String, Integer], default: 3306
 
-attribute :default_character_set, :kind_of => String, :default => 'utf8'
-attribute :single_transaction,    :kind_of => [TrueClass, FalseClass], :default => true
-attribute :destination,           :kind_of => String, :default => '/var/lib/mysql-zrm'
+attribute :default_character_set, kind_of: String, default: 'utf8'
+attribute :single_transaction, kind_of: [TrueClass, FalseClass], default: true
+attribute :destination, kind_of: String, default: '/var/lib/mysql-zrm'
 
-attribute :compress,  :kind_of => [TrueClass, FalseClass], :default => false
-attribute :encrypt,   :kind_of => [TrueClass, FalseClass], :default => false
-attribute :slave,     :kind_of => [TrueClass, FalseClass], :default => false
-attribute :retention, :kind_of => String, :default => '10D'
+attribute :compress, kind_of: [TrueClass, FalseClass], default: false
+attribute :encrypt, kind_of: [TrueClass, FalseClass], default: false
+attribute :slave, kind_of: [TrueClass, FalseClass], default: false
+attribute :retention, kind_of: String, default: '10D'
 
-attribute :extra_mysqldump_options, :kind_of => Array, :default => []
+attribute :extra_mysqldump_options, kind_of: Array, default: []
 
-attribute :template,  :kind_of => String, :default => 'backup_set.conf.erb'
-attribute :cookbook,  :kind_of => String, :default => 'mysql-zrm'
+attribute :template, kind_of: String, default: 'backup_set.conf.erb'
+attribute :cookbook, kind_of: String, default: 'mysql-zrm'
 
-def initialize(*args)
+def initialize(*)
   super
   @action = :create
 end
