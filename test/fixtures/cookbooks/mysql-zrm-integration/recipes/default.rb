@@ -4,16 +4,17 @@ include_recipe 'postfix::default'
 mysql_service 'default' do
   port '3306'
   version '5.5'
-  initial_root_password 'secret'
+  initial_root_password node['mysql']['server_root_password']
   action [:create, :start]
 end
+
+# Some mail package required otherwise zrm complains
 
 package 'mailx' do
   package_name 'heirloom-mailx'
   action :install
 end
 
-include_recipe 'mysql-zrm::default'
 include_recipe 'mysql-zrm::solo-install'
 
 mysql_zrm_backup_set 'test_backup' do

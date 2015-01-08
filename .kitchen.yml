@@ -27,7 +27,7 @@ platforms:
 suites:
   - name: mysql-zrm
     run_list:
-      - recipe[fake::default]
+      - recipe[mysql-zrm-integration::default]
     attributes:
       mysql:
         server_root_password: 'rootpass'

@@ -1,4 +1,4 @@
-name 'fake'
+name 'mysql-zrm-integration'
 version '1.0.0'
 
 depends 'apt'
