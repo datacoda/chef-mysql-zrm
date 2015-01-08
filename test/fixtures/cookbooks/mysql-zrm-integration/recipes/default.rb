@@ -22,6 +22,8 @@ mysql_zrm_backup_set 'test_backup' do
 end
 
 mysql_zrm_backup_set 'all_backup' do
+  retention '30D'
+  compress true
 end
 
 mysql_zrm_job 'weekly' do
